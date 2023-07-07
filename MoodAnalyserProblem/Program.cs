@@ -4,12 +4,20 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter mood Happy/Sad : ");
-            string M = Console.ReadLine();
-            Mood mood = new Mood(M);
-            Console.WriteLine(mood.AnalyzeMood());
-
-
+            try
+            {
+                string mood = string.Empty;
+                MoodAnalyserClass moodAnalyser = new MoodAnalyserClass(mood);
+                string result = moodAnalyser.AnalyseMood();
+                Console.WriteLine(result);
+            }
+            catch (MoodAnalysisException m)
+            {
+                Console.WriteLine(m.Message);
+            }
         }
+
+
     }
+    
 }
